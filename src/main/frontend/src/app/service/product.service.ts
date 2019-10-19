@@ -1,8 +1,9 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Product} from '../model/product.model';
+import {environment} from '../../environments/environment';
 
-export const PRODUCT_API = 'http://localhost:8080/api/v1/products';
+export const PRODUCT_API = environment.apiUrl + '/products';
 
 @Injectable()
 export class ProductService {
