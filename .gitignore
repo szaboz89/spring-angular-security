@@ -29,3 +29,6 @@ build/
 
 ### VS Code ###
 .vscode/
+
+### Angular build ###
+src/main/resources/public
