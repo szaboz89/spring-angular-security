@@ -1,7 +1,7 @@
 package com.szabodev.example.security;
 
-import com.szabodev.example.security.dto.ProductDTO;
-import com.szabodev.example.security.service.ProductService;
+import com.szabodev.example.security.model.Product;
+import com.szabodev.example.security.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -18,11 +18,11 @@ public class SpringAngularSecurityApplication {
     }
 
     @Bean
-    public CommandLineRunner commandLineRunner(ProductService productService, @Value("${config.environment}") String environment) {
+    public CommandLineRunner commandLineRunner(ProductRepository productRepository, @Value("${config.environment}") String environment) {
         return args -> {
-            if ("local".equals(environment)) {
-                productService.save(ProductDTO.builder().name("product1").price(BigDecimal.TEN).build());
-                productService.save(ProductDTO.builder().name("product2").price(BigDecimal.ONE).build());
+            if ("local".equals(environment) && productRepository.count() == 0) {
+                productRepository.save(Product.builder().name("product1").description("description1").price(BigDecimal.TEN).build());
+                productRepository.save(Product.builder().name("product2").description("description2").price(BigDecimal.ONE).build());
             }
         };
     }

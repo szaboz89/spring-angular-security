@@ -70,10 +70,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         log.info("Configure in memory authentication");
         auth
                 .inMemoryAuthentication()
-                .withUser("test1").password("{noop}" + "test1").authorities("ADMIN");
+                .withUser("admin").password("{noop}" + "admin").authorities("ADMIN");
         auth
                 .inMemoryAuthentication()
-                .withUser("test2").password("{noop}" + "test2").authorities("USER");
+                .withUser("user").password("{noop}" + "user").authorities("USER");
     }
 
     @Bean
