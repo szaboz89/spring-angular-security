@@ -1,4 +1,4 @@
-package com.szabodev.example.security.web;
+package com.szabodev.example.security.web.api.v1;
 
 import com.szabodev.example.security.dto.ProductDTO;
 import com.szabodev.example.security.service.ProductService;
@@ -13,10 +13,12 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/api/v1/products")
+@RequestMapping(ProductController.BASE_URL)
 @RequiredArgsConstructor
 @Slf4j
 public class ProductController {
+
+    static final String BASE_URL = "/api/v1/books";
 
     private final ProductService productService;
 
