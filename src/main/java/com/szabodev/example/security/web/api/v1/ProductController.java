@@ -18,7 +18,7 @@ import java.util.Optional;
 @Slf4j
 public class ProductController {
 
-    static final String BASE_URL = "/api/v1/books";
+    static final String BASE_URL = "/api/v1/products";
 
     private final ProductService productService;
 
